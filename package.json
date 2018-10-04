@@ -2,6 +2,7 @@
   "name": "rest-shop",
   "version": "1.0.0",
   "description": "A Node.js Restful API for the Training Drills app",
+  "repository": "https://github.com/SanderGeraedts/TrainingDrills-API",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
