@@ -17,6 +17,9 @@ mongoose.connect('mongodb+srv://sandergeraedts:' + process.env.MONGO_ATLAS_PW + 
 // Setup morgan for logging
 app.use(morgan('dev'));
 
+// Setup static folder, making '/uploads' publically accessible
+app.use('/uploads', express.static('uploads'));
+
 // Setup BodyParser
 app.use(bodyParser.urlencoded({extended: true, limit: '50mb'}));
 app.use(bodyParser.json({
@@ -41,7 +44,8 @@ app.use((req, res, next) => {
 });
 
 // Routes go here
-app.use('/user', userRoutes);
+app.use('/drills', drillRoutes);
+app.use('/users', userRoutes);
 
 // If Route is not found, throw 404
 app.use((req, res, next) => {

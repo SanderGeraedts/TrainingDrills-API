@@ -7,7 +7,7 @@ const DrillController = require('../controllers/drills');
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, './uploads/');
+        cb(null, 'uploads/');
     },
     filename: function (req, file, cb) {
         cb(null, new Date().toISOString() + file.originalname)
@@ -27,7 +27,7 @@ router.get('/', DrillController.drills_get_all);
 router.post(
     '/',
     checkAuth,
-    upload.array('photos'),
+    upload.array('images', 10),
     DrillController.drills_create_drill
 );
 
