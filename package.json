@@ -1,5 +1,5 @@
 {
-  "name": "rest-shop",
+  "name": "training-drills",
   "version": "1.0.0",
   "description": "A Node.js Restful API for the Training Drills app",
   "repository": "https://github.com/SanderGeraedts/TrainingDrills-API",
