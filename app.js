@@ -4,8 +4,13 @@ const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
+const ws = require('./api/websockets');
+
 const userRoutes = require('./api/routes/users');
 const drillRoutes = require('./api/routes/drills');
+const playerRoutes = require('./api/routes/players');
+
+
 
 // Connect to MongoDB
 mongoose.connect('mongodb+srv://sandergeraedts:' + process.env.MONGO_ATLAS_PW + '@primary-cluster-ppwsd.mongodb.net/test?retryWrites=true',
@@ -46,6 +51,11 @@ app.use((req, res, next) => {
 // Routes go here
 app.use('/drills', drillRoutes);
 app.use('/users', userRoutes);
+app.use('/players', playerRoutes);
+
+app.get('/', function (req, res) {
+    res.sendfile(__dirname + '/ws.html');
+});
 
 // If Route is not found, throw 404
 app.use((req, res, next) => {

@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Hoi</title>
+    <script>
+        var ws = new WebSocket('ws://localhost:40510');
+
+        ws.onopen = function () {
+            console.log('websocket is connected ...');
+
+            ws.send('connected');
+        };
+
+        ws.onmessage = function (ev) {
+            console.log(JSON.parse(ev.data));
+        }
+    </script>
+</head>
+<body>
+<h1 id="data">Dit is een test</h1>
+</body>
+</html>
