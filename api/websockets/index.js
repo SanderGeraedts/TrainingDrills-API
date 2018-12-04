@@ -70,12 +70,16 @@ function movePlayer(location) {
 wss.on('connection', function (ws) {
     ws.isAlive = true;
 
+    console.log('Hello there');
+
     Player.find()
         .select('_id name position location')
         .exec()
         .then(players => {
+            console.log('General Kenobi');
+            console.log(players);
+
             interval = setInterval(() => {
-                console.log(ws.isAlive);
 
                 for (const player of players) {
                     console.log(player.location);
